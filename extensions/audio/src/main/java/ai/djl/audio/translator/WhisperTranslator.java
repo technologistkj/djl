@@ -87,9 +87,9 @@ public class WhisperTranslator implements NoBatchifyTranslator<Audio, String> {
             samples = processor.extractFeatures(samples.getManager(), samples);
         }
         samples = samples.expandDims(0);
-        NDArray placeholder = ctx.getNDManager().create("");
+        NDArray placeholder = ctx.getNDManager().create(0f);
         placeholder.setName("module_method:generate");
-        return new NDList(samples, placeholder);
+        return new NDList(samples, placeholder).toDevice(Device.gpu(0), true);
     }
 
     /** {@inheritDoc} */
