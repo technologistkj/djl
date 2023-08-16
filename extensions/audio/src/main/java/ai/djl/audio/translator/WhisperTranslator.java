@@ -12,6 +12,7 @@
  */
 package ai.djl.audio.translator;
 
+import ai.djl.Device;
 import ai.djl.audio.processor.AudioProcessor;
 import ai.djl.audio.processor.LogMelSpectrogram;
 import ai.djl.audio.processor.PadOrTrim;
